@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<link href='style.css' rel='stylesheet'>
+	</head>
+
+	<body>
+		<h1>Assignment 1</h1>
+		<h2>3.2 Basic Operations</h2>
+		<h4>Image::Brighten</h4>
+		<p>
+			This may be run through <span class='mono'>image -brightness
+			&lt;val&gt;</span>.
+			This was implemented by scaling each color of each pixel by the given
+			amount, clamping the values to remain within the range [0, 255].
+			Example given below:
+		</p>
+		<img src='bright_img.bmp'/><img src='dullshed.bmp'/><br/>The image on the
+		left was calculated using a brightness factor of 2.4. The right image used
+		0.4.
+		<h4>Image::ChangeContrast</h4>
+		<p>
+			This may be run through <span class='mono'>image -contrast
+			&lt;val&gt;</span>. This was implemented by first calculating the average
+			luminance of the image, followed by linearly interpolating between each
+			pixel color and that average luminance. Example given below:
+		</p>
+		<img src='negwave.bmp'/><img src='conwave.bmp'/><img src='midwave.bmp'/><br/>The left image was
+		calculated using a contrast value of -1.3; the center image was calculated
+		with 2.5; the right image was calculated with 0.3.
+		<h4>Image::ChangeSaturation</h4>
+		<p>
+			This may be run through <span class='mono'>image -saturation
+			&lt;val&gt;</span>.
+			This was implemented by linearly interpolating each pixel with a
+			greyscale version of itself, clamping values to legal ranges. Examples
+			given below:
+		</p>
+		<img src='satman.bmp'/><img src='satman2.bmp'/><br/>
+		The left image was generated using a saturation value of 2; the right was
+		generated with 0.2.
+		<h4>Image::ChangeGamma</h4>
+		<p>
+			This may be run through <span class='mono'>image -gamma
+			&lt;val&gt;</span>. This was implemented by converting the discrete color
+			values into the continuous range [0, 1), and then raising them to the
+			inverse of the value provided. Examples provided below:
+		</p>
+		<img src='lowgamflower.bmp'/><img src='midgamflower.bmp'/><img
+		src='highgamflower.bmp'/><br/>
+		The left image used a value of 0.5; the middle is 1; the right is 2.
+		<h4>Image::Crop</h4>
+		<p>
+			This may be run through <span class='mono'>image -crop &lt;x&gt;
+			&lt;y&gt; &lt;width&gt; &lt;height&gt;</span>.
+			This is done by creating a new image and dropping the unused pixels. This
+			allows a photo from an old CSE 167 assignment revealing a bug to have the
+			bug conveniently removed, as such:
+		</p>
+		<img src='cropbots.bmp'/><img src='cropbots2.bmp'/><br/>
+		The image on the left reveals the bug; the image on the right hides it.
+		<h2>3.3 Quantization and Dithering</h2>
+		<p>
+			Work in progress...
+		</p>
+	</body>
+</html>
+
