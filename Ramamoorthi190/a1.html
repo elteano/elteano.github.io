@@ -59,9 +59,76 @@
 		<img src='cropbots.bmp'/><img src='cropbots2.bmp'/><br/>
 		The image on the left reveals the bug; the image on the right hides it.
 		<h2>3.3 Quantization and Dithering</h2>
+		<h4>Image::Quantize</h4>
 		<p>
-			Work in progress...
+			This may be run through <span class='mono'>image -quantize
+			&lt;nbits&gt;</span>. This works by first reducing each pixel to the
+			constraints given, then inflating that value back into the [0, 255] range
+			expected in the bitmap. Examples are given below:
 		</p>
+		<img src='house_2.bmp'/><img src='house_4.bmp'/><br/>
+		The image on the left is quantized to 2 bits; the image on the right is
+		quantized to 4.
+		<h4>Image::RandomDither</h4>
+		<p>
+			This may be run through <span class='mono'>image -randomDither
+			&lt;bits&gt;</span>. This works by adding noise to the image prior to
+			quantizing with the hope that this will reduce the sharp contours created
+			by quantizing. Examples are given below:
+		</p>
+		<img src='randhouse_2.bmp'/><img src='randhouse_4.bmp'/><br/>
+		The image on the left is quantized with random dither to 2 bits; the image
+		on the right is quantized with random dither to 4 bits.
+		<h4>Image::FloydSteinbergDither</h4>
+		<p>
+			This may be run through <span class='mono'>image -FloydSteinbergDither
+			&lt;bits&gt;</span>. This works by spreading the error created through
+			quantization to neighboring pixels, with the intent that the result will
+			be seen by users as similarly colored to the original. Examples are given
+			below:
+		</p>
+		<img src='fhouse_2.bmp'/><img src='fhouse_4.bmp'/><br/>
+		The image on the left is quantized with Floyd-Steinberg dither to 2 bits;
+		the image on the right is similarly quantized to 4 bits. Note that while
+		the quantization is harder to see due to the error spreading and the
+		shrunken image, the fault
+		lines created by a substandard implementation are quite visible.
+		<h2>3.4 Basic Convolution and Edge Detection</h2>
+		<h4>Image::Blur</h4>
+		<p>
+			This may be run through <span class='mono'>image -blur &lt;n&gt;</span>.
+			First, pixel weights are calculated in a single dimension along the
+			Gaussian curve. This is then expanded to create a Gaussian matrix in two
+			dimensions, and then fed through a convolution function. Examples are
+			shown below:
+		</p>
+		<img src='blurflower.bmp'/><img src='megablurflower.bmp'/><br/>
+		The image on the left was blurred with a matrix size of 3; the image on the
+		right was blurred with a matrix size of 13.
+		<h4>Image::Sharpen</h4>
+		<p>
+			This may be run through <span class='mono'>image -sharpen</span>.
+			The sharpness amount is hardcoded; a 3x3 convolution matrix is utilized
+			which gives heavy weight to the center pixel and negative weights to its
+			neighbors. Examples are shown below:
+		</p>
+		<img src='unsharpmonkey.bmp'/><img src='sharpmonkey.bmp'/><br/>
+		The image on the left is the image prior to modification; the image on the
+		right has been sharpened. Notice the increased definition of its fur and
+		nose features.
+		<h4>Image::EdgeDetect</h4>
+		<p>
+			This may be run through <span class='mono'>image -edgeDetect
+			&lt;threshold&gt;</span>.
+			This uses a Sobel filter which is passed through a convolution function
+			in order to detect gradients. The gradients are then sent through a sieve
+			which uses the provided threshold to determine the gradient speed
+			required to count as an edge. Examples are shown below:
+		</p>
+		<img src='baseflower.bmp'/><img src='floweredge50.bmp'/><img
+		src='floweredge125.bmp'/><br/>
+		The image on the left is the base image used. The center image has a
+		threshold of 50; the right image has a threshold of 125.
 	</body>
 </html>
 
