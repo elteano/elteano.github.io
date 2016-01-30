@@ -4,6 +4,7 @@
 	</head>
 
 	<body>
+		Presented by Thomas Tucker, A10755095.
 		<h1>Assignment 1</h1>
 		<h2>3.2 Basic Operations</h2>
 		<h4>Image::Brighten</h4>
@@ -129,6 +130,37 @@
 		src='floweredge125.bmp'/><br/>
 		The image on the left is the base image used. The center image has a
 		threshold of 50; the right image has a threshold of 125.
+		<h2>3.5 Antialiased Scale and Shift</h2>
+		<h4>Image::Scale</h4>
+		<p>
+			This may be run through <span class='mono'>image [-sampling &lt;num&gt;] -size &lt;x&gt;
+			&lt;y&gt;</span>, with valid sampling numbers
+			being 0 for nearest neighbor and 1 for hat. The respective filter is
+			first applied along the x axis for stetching / shrinking, and then along
+			the y axis for the appropriate operation. Mitchell filter had a
+			late-emerging bug which has prevented its inclusion entirely; hat filter
+			also had a similarly late-emerging bug, although it is still vaguely presentable.
+			Examples are given below:
+		</p>
+		<img src='nstretchwave.bmp' style='width:600;height:400'/><img
+		src='nshrinkwave.bmp' style='width:300;height:200'/><img
+		src='nstickwave.bmp' style='width:200;height:400'/><br/>
+		The image on the left has been expanded; the image in the center has been
+		shurnk; and the image on the right has been squished (nearest neighbor).
+		<img src='hstretchwave.bmp' style='width:600;height:400'/><img
+		src='hshrinkwave.bmp' style='width:300;height:200'/><img
+		src='hstickwave.bmp' style='width:200;height:400'/><br/>
+		The image on the left has been expanded; the image in the center has been
+		shurnk; and the image on the right has been squished (hat). Notice that
+		there is a bug.
+		<h4>Image::Shift</h4>
+		<p>
+			This was not implemented... sadness fills the land.
+		</p>
+		<h2>3.6 Fun nonlinear filters</h2>
+		<p>
+			This was not implemented...
+		</p>
 	</body>
 </html>
 
