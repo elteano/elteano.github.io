@@ -131,7 +131,7 @@
 		</p>
 		<p>
 			Pictured below is the elephant model before and after decimation (reduced
-			to 10% of its original vertices). This process took about 71 seconds,
+			to 10% of its original vertices). This process took about 37 seconds,
 			tracked by the program.
 		</p>
 		<img src='a2/elephant_pre.PNG'><img src='a2/elephant_post.PNG'><br/>
@@ -149,6 +149,32 @@
 			vertex implementation and neglecting to dereference pair pointers were
 			two small errors which took quite a bit of time to locate.
 		</p>
+		<h2>3.5 Progressive Mesh</h2>
+		<p>
+			This was implemented through an internal data structure rather than
+			through a separate file. This removes the need to reparse the data and
+			allows for a more fluid experience. For each split, an internal record
+			keeps a snapshot of the data before and after the split. This requires a
+			solid chunk of memory, although means that splist do not need to be
+			recomputed after the mesh has been reconstructed.
+		</p>
+		<p>
+			In order to progress through the progressive mesh, the 'x' and 'z' keys
+			may be used. After at least one edge collapse has been enacted, the 'z' key
+			may be used to regenerate the mesh. If the 'x' key is hit after the 'z'
+			key, then an undone split will be reapplied, but not recalculated.
+			Information will be sent to the terminal about where the user stands in
+			the calculated splits.
+		</p>
+		<img src='a2/test-forward.PNG'><img src='a2/test-backward.PNG'><br/>
+		The image on the left was generated after some edge collapses. The image on
+		the right was reconstructed after those edge collapses.
+		<p>
+			Below is a video demonstrating the progressive mesh. If it does not load,
+			it may be found on YouTube <a
+			href='https://youtu.be/93v9qWV8GKY'>here</a>.
+		</p>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/93v9qWV8GKY" frameborder="0" allowfullscreen></iframe>
 	</body>
 </html>
 
