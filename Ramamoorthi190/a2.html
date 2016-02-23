@@ -126,6 +126,10 @@
 			original vertices and report the time required to do so in seconds.
 		</p>
 		<p>
+			Optimal vertices are calculated. However, this is not a perfect
+			implementation, as can be seen below.
+		</p>
+		<p>
 			Pictured below is the elephant model before and after decimation (reduced
 			to 10% of its original vertices). This process took about 71 seconds,
 			tracked by the program.
@@ -133,7 +137,12 @@
 		<img src='a2/elephant_pre.PNG'><img src='a2/elephant_post.PNG'><br/>
 		The image on the left is the elephant prior to decimation. The image on the
 		right is the elephant after decimation. Notice the loss of detail on the
-		trunk and face.
+		trunk and face.<br/>
+		<img src='a2/elephant_2_pre.PNG'><img src='a2/elephant_2_post.PNG'></br>
+		The image on the left is the elephant prior to decimation. The image on the
+		right is the elephant after decimation. Notice the shading artifacts
+		created during the decimation process as well as the chunk taken out of the
+		elephant's ear.
 		<p>
 			Difficulties with this portion arose mostly due to simple errors which
 			had profound effects - adding instead of multiplying in the matrix *
