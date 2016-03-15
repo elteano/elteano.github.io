@@ -14,9 +14,46 @@
 		</p>
 		<h4>Execution</h4>
 		<p>
-			The executable is available to <a href='a3/A3.exe'>download
+			The executable and required library is available to <a href='a3/A3.zip'>download
 			here</a>.<br/>
-			There are 
+			In order to create an image analogy, the suggested execution model is
+			<span class='mono'>A3 -k &lt;weight&gt; -epsilon &lt;error&gt; -analogy
+			&lt;A&gt; &lt;A'&gt; &lt; &lt;base&gt; &gt; &lt;output&gt;</span>. For
+			all of the images on this page, the k and epsilon values are listed.
+		</p>
+		<p>
+			The k value is the weight between coherence and approximate matching. The
+			paper discusses different weights they used; if none is specified, the
+			program defaults to k=5.
+		</p>
+		<p>
+			The epsilon value is the amount of error allowed to the Approximate
+			Nearest Neighbor search. Increasing this value above its default of zero
+			will significantly speed up execution (and possibly make the resulting
+			image look better).
+		</p>
+		<h5>Other Options</h5>
+		<p>
+			There are also a few debug options available, listed here.<br/>
+			<span class='mono'>-reduce</span><br/>
+			This will run a single pass of the reduce function which is used to
+			create the Gaussian Pyramids. This first applies a gaussian blur, then
+			does a simple subsample to reduce the image&rsquo;s dimensions by
+			half.<br/>
+			<span class='mono'>-max_levels</span><br/>
+			This will limit the maximum number of levels the Gaussian Pyramids are
+			permitted. This may be desirable if all source images are very large,
+			although the higher levels of the Gaussian Pyramids require radically
+			less computation than the lower, and so saved time will be marginal.<br/>
+			<span class='mono'>-gp</span><br/>
+			This calculates the Gaussian Pyramid for the source image and outputs the
+			flattened pyramid.<br/>
+			<span class='mono'>-rgp &lt;out_file&gt;</span><br/>
+			This outputs the pyramid calculated during the creation of the image
+			analogy to the given output file.<br/>
+			<span class='mono'>-lumi &lt;base_file&gt;</span><br/>
+			This does a luminance transfer from the base file to the standard input
+			file.<br/>
 		</p>
 		<h2>Overview</h2>
 		<p>
