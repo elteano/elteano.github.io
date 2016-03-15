@@ -2,6 +2,7 @@
 	<head>
 		<link href='style.css' rel='stylesheet'>
 		<link href='a3.css' rel='stylesheet'>
+		<title>Ramamoorthi 190 Assignment 3</title>
 	</head>
 	<body>
 		Presented by Thomas Tucker, A10755095.
@@ -11,9 +12,11 @@
 			as discussed in the paper available <a
 			href='http://www.mrl.nyu.edu/publications/image-analogies/analogies-fullres.pdf'>here</a>.
 		</p>
-		<h4>Usage</h4>
+		<h4>Execution</h4>
 		<p>
-			The provided 
+			The executable is available to <a href='a3/A3.exe'>download
+			here</a>.<br/>
+			There are 
 		</p>
 		<h2>Overview</h2>
 		<p>
@@ -77,9 +80,31 @@
 			created from a faulty YIQ mapping.
 		</p>
 		<a href='a3/shed.bmp'><img src='a3/shed.bmp'/></a> <a
-		href='a3/paintshed.bmp'><img src='a3/paintshed.bmp'/></a>
+		href='a3/paintshed.bmp'><img src='a3/paintshed.bmp'/></a><br/>
 		Note that these images have been scaled to fit the page layout. Clicking on
 		the image will link to the full size version.
+		<p>
+			While far from pretty, the gaussian pyramid generated alongside this
+			image is displayed below. Like the images above, it has been scaled to
+			fit the page.
+		</p>
+		<a href='a3/paintshed_rgp.bmp'><img src='a3/paintshed_rgp.bmp'/></a>
+		<p>
+			After fixing the YIQ bug, the image and gaussian pyramid below were
+			generated using the same values as above (k=1, epsilon=5.0).
+		</p>
+		<a href='a3/new_paintshed.bmp'><img src='a3/new_paintshed.bmp'/></a><br/>
+		<a href='a3/new_paintshed_rgp.bmp'><img src='a3/new_paintshed_rgp.bmp'/></a>
+		<p>
+			These results are looking pretty good; however, it should be noted that
+			no displacement is occuring here. The color at each pixel is the
+			luminance from the selected A' pixel matched with the I and Q values from
+			the source B pixel at the destination location; thus, despite the strokes
+			applied to the roof of the shed being curved, one can notice that there
+			remains a distinct straight edge to the shed. This is extracted from the
+			shed for clarity below.
+		</p>
+		<img src='a3/badshedroof.bmp' style='width: 153px; height: 122px;'/>
 	</body>
 </html>
 
