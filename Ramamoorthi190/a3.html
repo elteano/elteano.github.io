@@ -28,9 +28,9 @@
 		</p>
 		<p>
 			The epsilon value is the amount of error allowed to the Approximate
-			Nearest Neighbor search. Increasing this value above its default of zero
-			will significantly speed up execution (and possibly make the resulting
-			image look better).
+			Nearest Neighbor search. This value defaults to five; setting it to zero
+			will incur a vastly increased time cost with only marginal subjective
+			benefit.
 		</p>
 		<h5>Other Options</h5>
 		<p>
@@ -56,6 +56,7 @@
 			file.<br/>
 		</p>
 		<h2>Overview</h2>
+		<h3>The Basics</h3>
 		<p>
 			The process of Image Analogies has four major steps, as described in the
 			paper. First, Gaussian Pyramids are created by blurring and then
@@ -83,7 +84,8 @@
 			sense for these to be the RGB values for each pixel, and it is suggested
 			as such in the paper, further inquiry shows that the ideal feature vector
 			for each pixel is actually just the single luminance value for the pixel.
-			In the paper, it is referred to as the Y value in the YIQ scale. This
+			In the paper, it is referred to as the Y value in the YIQ scale<a
+			href='https://en.wikipedia.org/wiki/YIQ'>*</a>. This
 			allows scenes which are diverse in color to be compared intuitively, as
 			the colors are effectively normalized to the luminance scale. The colors
 			are then reconstructed from the B image in a sort of luminance transfer;
@@ -92,32 +94,18 @@
 		</p>
 		<img class='fimg' src='a3/reflect_corner.bmp'></img> <img class='fimg'
 		src='a3/flower.bmp'></img> <img class='fimg' src='a3/lflower.bmp'></img>
+		<h3>The Results</h3>
 		<p>
-			A result from the implementation can be seen below. The first two images
-			were used for training (A and A'), the third image as the base (B) image,
-			and the final image is the resulting B' image. Key points to note are
-			that while the top of the resulting image lacks any particular texture,
-			the bottom two thirds are textured with various paint-style strokes,
-			although with visible edge artifacts and not particularly sensible
-			placement. In particular, one can notice that the imperfect
-			implementation favors grabbing Lucian Freud&rsquo;s ear and other large
-			chunks of his face rather than mimicking single brush strokes. However,
-			the created image is certainly more abstract than the base image. This
-			was created with the hardcoded default values of k=5 and epsilon=0.0.
+			The first two images were used for training (A and A'), the third image
+			as the base (B) image, and the final image is the resulting B' image.
+			The B' image below was created using k=1, epsilon=5.0.
 		</p>
 		<img class='refl' src="a3/reflection_a.bmp"/> <img class='refl'
-		src="a3/reflection_a'.bmp"/> <img class='shore' src='a3/shore.bmp'/> <img
-		class='shore' src='a3/intershore.bmp'/>
-		<p>
-			Note, however, that the writers of the paper recognize that there must be
-			some input tweaking in order to get good results. Using the same A and A'
-			images as above, and the B image below, the B' image below was created
-			using k=1, epsilon=5.0. Note that more of the &lsquo;artistic
-			effect&rsquo; was captured here, although there are some artifacts
-			created from a faulty YIQ mapping.
-		</p>
-		<a href='a3/shed.bmp'><img src='a3/shed.bmp'/></a> <a
-		href='a3/paintshed.bmp'><img src='a3/paintshed.bmp'/></a><br/>
+		src="a3/reflection_a'.bmp"/>
+		<a href='a3/shed.bmp'><img
+		src='a3/shed.bmp'/></a>
+		<a href='a3/new_paintshed.bmp'><img src='a3/new_paintshed.bmp'/></a><br/>
+		<br/>
 		Note that these images have been scaled to fit the page layout. Clicking on
 		the image will link to the full size version.
 		<p>
@@ -125,12 +113,6 @@
 			image is displayed below. Like the images above, it has been scaled to
 			fit the page.
 		</p>
-		<a href='a3/paintshed_rgp.bmp'><img src='a3/paintshed_rgp.bmp'/></a>
-		<p>
-			After fixing the YIQ bug, the image and gaussian pyramid below were
-			generated using the same values as above (k=1, epsilon=5.0).
-		</p>
-		<a href='a3/new_paintshed.bmp'><img src='a3/new_paintshed.bmp'/></a><br/>
 		<a href='a3/new_paintshed_rgp.bmp'><img src='a3/new_paintshed_rgp.bmp'/></a>
 		<p>
 			These results are looking pretty good; however, it should be noted that
@@ -142,6 +124,55 @@
 			shed for clarity below.
 		</p>
 		<img src='a3/badshedroof.bmp' style='width: 153px; height: 122px;'/>
+	<p>
+		The following images illustrate the difference between epsilon=0 and
+		epsilon=5;
+		The first image is the basis for the second two, using the
+		<i>Reflection</i> images from above as the A and A' material.
+		The second image uses epsilon=0, and took a great deal of time, and the
+		third image uses epsilon=5, and took less than a minute to produce.
+	</p>
+	<img class='shore' src='a3/shore.bmp'/> <img class='shore'
+	src='a3/paintshore0.bmp'/> <img class='shore' src='a3/paintshore5.bmp'/>
+	<p>
+		A similar filter is attempted with a line art style; the three source
+		images are displayed first in A, A', B order, followed by three synthesized
+		images. The three synthesized images are all created with epsilon=3, and
+		are k=1, k=2, and k=3, respectively. Note the change from the diagonal
+		lines to vertical lines, as well as the use of the patched area from the
+		bottom of the source fountain picture on the sides of the mandrill&rsquo;s
+		face. An unfortunate drawback of my implementation is that it does not
+		recognize the fact that A and A' are near-black-and-white, and that the B'
+		image should be similarly colored. It is worth noting that in the images
+		provided with the paper, the B images provided were already greyscale. The
+		artifacts near the top are caused by an unknown bug, and appear with other
+		line art tests.
+	</p>
+	<img class='fount' src='a3/fountain_a.bmp'/> <img class='fount'
+	src='a3/fountain_ap.bmp'/> <img class='man' src='a3/mandrill.bmp'/>
+	<img class='man' src='a3/fman1.bmp'/>
+	<img class='man' src='a3/fman2.bmp'/>
+	<img class='man' src='a3/fman3.bmp'/>
+	<h3>The Experience</h3>
+	<p>
+		I used the same Approximate Nearest Neighbor library used in the
+		paper&rsquo;s implementation, which may be found <a
+		href='https://www.cs.umd.edu/~mount/ANN/'>here</a>. The problems arising
+		from using this were limited to mistakes in memory management and
+		allocation.
+	</p>
+	<p>
+		A major setback in creating this arose from a slight misunderstanding of
+		the <span class='mono'>fopen</span> call; I opened files for reading, not
+		recalling the difference between standard read and binary read, which led
+		to all opened files being misread and many hours of debugging and many
+		early images looking like variations of vertical or diagonal lines.
+	</p>
+	<p>
+		Upon fixing that, results were good almost instantaneously. There were at
+		one point bugs in the YIQ to RGB translation, although adding clamping and
+		rereading the Wikipedia article saw quick fixes to these problems.
+	</p>
 	</body>
 </html>
 
