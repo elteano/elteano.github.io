@@ -24,6 +24,16 @@
       are then flipped back and forth between two framebuffers, each time blurring
       either on the horizontal or vertical axes. The result is then added back to
       the base image to create the bloom effect. </p>
+    <p> The water reflection is implemented by rendering the image twice, only rendering
+      what is above the water. The first render uses the default camera; the second
+      render uses the camera's position reflected beneath the water, so its new depth
+      below the water is the same as its previous height above the water, and the
+      angle is now tilted up to the same degree as it was tilted down. The second
+      image is then transformed using a du/dv map to create the wave effect for things
+      reflected from above the water (models, skybox, and the like). The two images
+      are then painted onto the water quad, using the camera angle to determine how
+      they are mixed in order to replicate the <a href='https://en.wikipedia.org/wiki/Fresnel_equations'>Fresnel effect</a>.
+      </p>
     <h3> CSE 190 at UCSD </h3>
     <p> There were three assignments for this course. For more information, follow the
       rabbit hole <a href='Ramamoorthi190'>here</a>. The final project was a combination
