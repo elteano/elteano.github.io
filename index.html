@@ -1,48 +1,51 @@
 <html>
+
   <head>
-  </head>
+    <title>Thomas Tucker's Website</title>
+    <link rel='stylesheet' type='text/css' href='style/style.css'> </head>
 
   <body>
     <h1>Thomas Tucker</h1>
-    <p>
-      Welcome to my humble web site.
-    </p>
-
-    <p>
-      Here's an overview of some of the work I've done...
-    </p>
-
+    <p> Welcome to my humble web site. </p>
+    <p> Here's an overview of some of the work I've done... </p>
     <h2>Graphics</h2>
-    <h3>
-      CSE 167 at UCSD:
-    </h3>
-    <p>
-      Final project, a collaboration with my peer Marco Mendez. I personally
-      created the bloom effects and the water effects.
-    </p>
-    <p> image here </p>
-    <p>
-      The bloom effects are implemented using a Gaussian blur over the highlights
-      of the scene. First, the items are rendered as normal; they are then
-      filtered for the highlights, which are extracted into a separate
-      framebuffer. The highlights are then flipped back and forth between two
-      framebuffers, each time blurring either on the horizontal or vertical axes.
-    </p>
-		<h3>
-			CSE 190 at UCSD
-		</h3>
-		<p>
-			There were three assignments for this course. For more information, follow
-			the rabbit hole <a href='Ramamoorthi190'>here</a>.
-		</p>
+    <h3> CSE 167 at UCSD: </h3>
+    <p> Final project, a collaboration with my peer Marco Mendez. I personally created
+      the bloom effects and the water effects; my partner was responsible for the
+      multi-textured model. </p>
+    <p> I am currently in the process of resurrecting the project for the finished image;
+      in the meantime, one of the debugging images for the water and bloom (without
+      the final model) is posted. </p>
+    <p> <img src='images/bloom_filter.png' alt='Reflective water with bloom
+  filter.' /></p>
+    <p> The bloom effects are implemented using a Gaussian blur over the highlights of
+      the scene. First, the items are rendered as normal; they are then filtered
+      for the highlights, which are extracted into a separate framebuffer. The highlights
+      are then flipped back and forth between two framebuffers, each time blurring
+      either on the horizontal or vertical axes. The result is then added back to
+      the base image to create the bloom effect. </p>
+    <h3> CSE 190 at UCSD </h3>
+    <p> There were three assignments for this course. For more information, follow the
+      rabbit hole <a href='Ramamoorthi190'>here</a>. The final project was a combination
+      of image processing and an artificial intelligence which attempted to replicate
+      a given art style on an image. The user provides two sample images which establish
+      the art style (one is unstyled, one is styled), as well as an image to be transformed,
+      and the software attempts to replicate the given art style on the final image.
+      This is based on the <i>Image Analogies</i> paper by Hertzman, et. al, found
+      <a href='https://www.mrl.nyu.edu/publications/image-analogies/analogies-fullres.pdf'>here</a>.
+      The input images were provided <a href='https://www.mrl.nyu.edu/projects/image-analogies/'>here</a>.
+      </p>
+    <p> Input images: <br/> <img class='half' src='Ramamoorthi190/a3/reflection_a.bmp'
+        alt='Unstyled input image' /> <img class='half' src="Ramamoorthi190/a3/reflection_a'.bmp"
+        alt='Styled input image' /> </p>
+    <p> Target and output images: <br/> <img class='half' src='Ramamoorthi190/a3/shed.bmp'
+      /> <img class='half' src='Ramamoorthi190/a3/new_paintshed.bmp' /> </p>
     <h3>D Language Wrappers</h3>
-    <p>
-      I'm a personal fan of this language, and so I've been working to create
-      some SDL-based wrappers for OpenGL (as well as various SDL constructs).
-      This can be found <a
-      href='https://github.com/elteano/SdlOgl-Basic-EngLib'>here</a>. As this
-      is a work in progress, I will be updating it as I have time to commit.
-    </p>
+    <p> I'm a personal fan of this language, and so I've been working to create some
+      SDL-based wrappers for OpenGL (as well as various SDL constructs). This can
+      be found <a href='https://github.com/elteano/SdlOgl-Basic-EngLib'>here</a>.
+      As this is a work in progress, I will be updating it as I have time to commit.
+      </p>
   </body>
-</html>
 
+</html>
