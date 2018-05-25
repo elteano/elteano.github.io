@@ -17,12 +17,13 @@
     <h3> CSE 167 at UCSD: </h3>
     <p> Final project, a collaboration with my peer Marco Mendez. I personally created
       the bloom effects and the water effects; my partner was responsible for the
-      multi-textured model. </p>
-    <p> I am currently in the process of resurrecting the project for the finished image;
-      in the meantime, one of the debugging images for the water and bloom (without
-      the final model) is posted. </p>
-    <p> <img src='images/bloom_filter.png' alt='Reflective water with bloom
-  filter.' /></p>
+      multi-textured model and (probably) the particle system. </p>
+    <p> The image on the left has bloom active, the image on the right does not. The
+      bloom is most visible in the particle system emerging from the cannon and the
+      clouds in the skybox. </p>
+    <p> <img class='half' src='images/blooming.png' alt='Reflective water with bloom filter.'
+      /> <img class='half' src='images/nobloom.png' alt='Reflective water without bloom filter.'
+      /> </p>
     <p> The bloom effects are implemented using a Gaussian blur over the highlights of
       the scene. First, the items are rendered as normal; they are then filtered
       for the highlights, which are extracted into a separate framebuffer. The highlights
