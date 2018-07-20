@@ -21,9 +21,12 @@
     <p> The image on the left has bloom active, the image on the right does not. The
       bloom is most visible in the particle system emerging from the cannon and the
       clouds in the skybox. </p>
-    <p> <img class='half' src='images/blooming.png' alt='Reflective water with bloom filter.'
-      /> <img class='half' src='images/nobloom.png' alt='Reflective water without bloom filter.'
-      /> </p>
+    <details>
+      <summary>Click to view images. </summary>
+      <p> <img class='half' src='images/blooming.png' alt='Reflective water with bloom filter.'
+        /> <img class='half' src='images/nobloom.png' alt='Reflective water without bloom filter.'
+        /></p>
+    </details>
     <p> The bloom effects are implemented using a Gaussian blur over the highlights of
       the scene. First, the items are rendered as normal; they are then filtered
       for the highlights, which are extracted into a separate framebuffer. The highlights
@@ -51,13 +54,15 @@
       Analogies</i></a> paper by Hertzman, and others. The input images were provided
       <a href='https://www.mrl.nyu.edu/projects/image-analogies/'>here</a>. This
       was coded in C++. </p>
-    <p> Input images: <br/> <img class='half' src='Ramamoorthi190/a3/reflection_a.bmp'
-        alt='Unstyled input image' /> <img class='half' src="Ramamoorthi190/a3/reflection_a'.bmp"
-        alt='Styled input image' /> </p>
-    <p> Target and output images: <br/> <img class='half' src='Ramamoorthi190/a3/shed.bmp'
-      /> <img class='half' src='Ramamoorthi190/a3/new_paintshed.bmp' /> </p>
-    <h2>
-    Other Projects </h2>
+    <details>
+      <summary>Click to view images.</summary>
+      <p> Input images: <br/> <img class='half' src='Ramamoorthi190/a3/reflection_a.bmp'
+          alt='Unstyled input image' /> <img class='half' src="Ramamoorthi190/a3/reflection_a'.bmp"
+          alt='Styled input image' /> </p>
+      <p> Target and output images: <br/> <img class='half' src='Ramamoorthi190/a3/shed.bmp'
+        /> <img class='half' src='Ramamoorthi190/a3/new_paintshed.bmp' /> </p>
+    </details>
+    <h2> Other Projects </h2>
     <h3>Chopsticks</h3>
     <p> A client-server implementation of the game <a href='https://en.wikipedia.org/wiki/Chopsticks_(game)'>Chopsticks</a>.
       Source code is available on <a href='https://github.com/elteano/Chopsticks'>GitHub</a>.
