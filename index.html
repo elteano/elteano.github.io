@@ -62,6 +62,51 @@
       <p> Target and output images: <br/> <img class='half' src='Ramamoorthi190/a3/shed.bmp'
         /> <img class='half' src='Ramamoorthi190/a3/new_paintshed.bmp' /> </p>
     </details>
+    <h2>Game Development</h2>
+    <h3>CSE 125 - Battle Boats</h3>
+    <p> In Professor Voelker's words, &ldquo;The goal of CSE 125 is to experience the
+      design and implementation of a large, complex software system in large groups.
+      ... To make the class exciting as well as challenging, the project is a distributed,
+      real-time, 3D, multiplayer game of each group's design.&rdquo; More information
+      about the course can be found on the <a href='https://cse125.ucsd.edu/'>course webpage</a>.
+      </p>
+    <p> I was responsible for the development of the graphics engine and implement the
+      user interface for our team. There were four primary things here; I pulled
+      the bloom effects and water from my work in the CSE 167 course, and then used
+      OpenGL shaders to implement user-clickable objects and a particle system that
+      was calculated entirely within the GPU.</p>
+    <p> The game was developed using C++ with OpenGL provided through SDL. </p>
+    <details>
+      <summary>Click to view images.</summary>
+      <table>
+        <tr>
+          <td>Buttons, levers, and wheel can be clicked for interaction</td>
+          <td>In-GPU particle system, red </td>
+        </tr>
+        <tr>
+          <td> <img src='images/bboats_steering.png' /> </td>
+          <td> <img src='images/bboats_boom.png' /> </td>
+        </tr>
+        <tr>
+          <td> This is the pilot's view. An angry robotic shark lies ahead of the badly
+            damaged boat. </td>
+          <td> This is the gunner's view. We have successfully hit our opponents, and
+            are rewarded with a nice explosion. </td>
+        </tr>
+      </table> Interactable elements and status gauges have green glows. Status gauges have
+      an additional red glow if they need attention. </details>
+    <p> The user interaction is implemented by giving each interactable object an ID.
+      With every draw, the ID of each object is drawn to an &lsquo;interaction&rsquo;
+      image, which is the same size as the view pane. When a click is registered,
+      the location of the click is used to look up the ID in the interaction image,
+      and if an ID exists in the interaction image at that location, then interaction
+      begins with the corresponding element.</p>
+    <p> The particle system is implemented by an image to store the offset from the center
+      of each particle, and another to store the velocity of each particle. At each
+      update, a shader updates the offsets by the corresponding velocities; at draw
+      time, the GPU calculates the locations of each particle and draws a small square
+      at those locations. The particles are also subject to the bloom effects to
+      make them more appealing. </p>
     <h2> Other Projects </h2>
     <h3>Chopsticks</h3>
     <p> A client-server implementation of the game <a href='https://en.wikipedia.org/wiki/Chopsticks_(game)'>Chopsticks</a>.
@@ -80,10 +125,6 @@
       grammar is way off, but it otherwise gets spelling mostly correct. It tends
       to generate conversations between Monte Cristo and someone else (quite frequently,
       Monte Cristo will be talking to himself). <pre>
-"you know you will be here."
-
-"you will prove you?"
-
 "yes; what do you be to see the count?"
 
 "yes," said monte cristo, "what do you know?"
