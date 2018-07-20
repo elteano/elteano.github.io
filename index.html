@@ -64,6 +64,37 @@
       It is written in an Object-Oriented fashion using D, and built with dub. Clients
       and servers may connect through IPv4 sockets or through Unix sockets, if available.
       </p>
+    <h3>RNNs</h3>
+    <p> I've recently been working on creating a character-level recursive neural network
+      which is trained on <i>The Count of Monte Cristo</i> by Alexandre Dumas (p&egrave;re).
+      It was originally based off <a href='https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/'>a
+      tutorial by Jason Brownlee</a>, and has since grown into a little project on
+      its own. The GitHub repository may be perused <a href='https://github.com/elteano/lstm-nonsense'>here</a></p>
+    <p>All of the characters are reduced to lower case for the network, so it makes
+      no attempt at making correct capitalization. Below is some sample output; its
+      grammar is way off, but it otherwise gets spelling mostly correct. It tends
+      to generate conversations between Monte Cristo and someone else (quite frequently,
+      Monte Cristo will be talking to himself). <pre>
+"you know you will be here."
+
+"you will prove you?"
+
+"yes; what do you be to see the count?"
+
+"yes," said monte cristo, "what do you know?"
+
+"you will not have completed me."
+
+"well," said monte cristo; "i will know what you will be with the
+carriage."
+
+"and you will not know what you know they were only the
+count’s house;"
+
+"yes; i have come to my country."
+</pre> This was generated after roughly a day of training on a two-stacked layer
+      of LSTM units, with 256 units in each layer. The output layer uses a softmax
+      activation function, for which a temperature of 0.3 is provided during generation.</p>
   </body>
 
 </html>
